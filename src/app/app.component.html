@@ -1,0 +1,10 @@
+<p>
+  剛進來的頁面<br/>{{ currentPage }}<br/>
+  總頁數<br/>{{totalPages}} <br/>
+  點選後頁面<br/>{{pageSelect}}<br/>
+</p>
+<br/>
+<pre>
+    V這邊按下去會打開，還可以直接打頁數，不打開直接按箭頭為直接換頁
+</pre>
+<ck-pagination (pageSelect)="onListenPagination($event)" [currentPage]="currentPage" [totalPages]="totalPages"></ck-pagination>

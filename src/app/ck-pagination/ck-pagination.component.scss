@@ -1,0 +1,118 @@
+.pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  * {
+    color: #fff;
+  }
+  input {
+    text-align: center;
+    background-color: #4a4a4a;
+    border: solid 1px #777c83;
+    border-right: 0px;
+    border-radius: 0px;
+    color: #FFF;
+    padding: 0;
+    outline: none;
+  }
+  .outside-container {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    .cdk-virtual-scroll-data-source-example {
+      .example-viewport {
+        left: 0;
+        top: 0;
+        position: absolute;
+        border: none;
+        .cdk-virtual-scroll-content-wrapper {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+      .example-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 0;
+        background-color: rgba($color: #000000, $alpha: 0);
+        border: solid 1px #777c83;
+        border-right: 0px;
+        border-radius: 0px;
+        &:hover {
+          background-color: rgba($color: #fff, $alpha: 0.1);
+        }
+        &:active {
+          background-color: rgba($color: #fff, $alpha: 0.05);
+        }
+        &.selected {
+          background: #c30018;
+          &:hover {
+            background: #f71430;
+          }
+          &:active {
+            background: #a30317;
+          }
+          &:disabled {
+            background: #c30018;
+          }
+        }
+      }
+    }
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    background-color: rgba($color: #000000, $alpha: 0);
+    border: solid 1px #777c83;
+    border-right: 0px;
+    border-radius: 0px;
+    
+    &:first-child {
+      border-radius: 2px 0px 0px 2px;
+      font-size: 6px;
+    }
+    &:last-child {
+      border-radius: 0px 2px 2px 0px;
+      border-right: solid 1px #777c83;
+      font-size: 6px;
+    }
+    &:hover {
+      background-color: rgba($color: #fff, $alpha: 0.1);
+    }
+    &:active {
+      background-color: rgba($color: #fff, $alpha: 0.05);
+    }
+    &.disabled {
+      cursor: auto;
+      i{
+        color: #4a4a4a;
+      }
+      &:hover {
+        background-color: rgba($color: #fff, $alpha: 0.0);
+      }
+      &:active {
+        background-color: rgba($color: #fff, $alpha: 0.0);
+      }
+    }
+    &.pages {
+      background: #c30018;
+      color: #fff;
+      &:hover {
+        background: #f71430;
+        color: #fff;
+      }
+      &:active {
+        background: #a30317;
+        color: #fff;
+      }
+      &:disabled {
+        background: #c30018;
+        color: #fff;
+      }
+    }
+  }
+}

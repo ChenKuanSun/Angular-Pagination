@@ -1,0 +1,25 @@
+<div class="pagination">
+  <!-- 低於1就不給按 -->
+  <a [ngStyle]="itemStyle" [class.disabled]="(currentPage <= 1 && !paginationToggle)" (click)="barScrollLeft();"><i
+      class="icon-arrow-left"></i>&lt;</a>
+  <ng-container *ngIf="paginationToggle; else a">
+    <!-- 打開導航欄之後這邊可以直接輸入頁碼 -->
+    <input [ngStyle]="itemStyle" (change)="inputChange($event.target)" value="{{ currentPage }}" />
+  </ng-container>
+  <ng-template #a>
+    <a [ngStyle]="itemStyle" class="pages" (click)="openPagination();">{{currentPage}}</a>
+  </ng-template>
+  <div class="outside-container" [ngStyle]="containerStyle">
+    <div class="cdk-virtual-scroll-data-source-example">
+      <cdk-virtual-scroll-viewport #scrollComponent [ngStyle]="viewportStyle" orientation="horizontal"
+        itemSize="{{ itemSize }}" class="example-viewport" minBufferPx="({{ itemSize }} * {{ showItemSize }})"
+        maxBufferPx="({{ itemSize }} * {{ showItemSize }} * 2)">
+        <div *cdkVirtualFor="let item of items; templateCacheSize:10 " (click)="onButtonClick(item);"
+          class="example-item" [ngStyle]="itemStyle" [class.selected]="item == currentPage">{{item}}</div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+  <!-- 如果是最後一頁就不給按 -->
+  <a [ngStyle]="itemStyle" [class.disabled]="(currentPage >=totalPages  && !paginationToggle)"
+    (click)="barScrollRight();"><i class="icon-arrow-right"></i>&gt;</a>
+</div>
